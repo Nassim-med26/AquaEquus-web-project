@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaEquus </title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+    <img src="images/logo.jpg" alt="AquaEquus Logo" class="logo-img">
+    
+</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="products.html">Produits</a></li>
+                <li><a href="cart.html">Panier (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+   <div class="store-title">
+        <h1 class="store-name">AquaEquus</h1>
+        <p class="store-subtitle" style="color: black;">Ride & Dive</p>
+    </div>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>AquaEquus</h1>
+            <p class="subtitle">L'élégance du mouvement</p>
+            <a href="products.html" class="btn-gold">Découvrir</a>
+        </div>
+    </section>
+    
+
+    <section class="categories">
+        <div class="category swim-card" onclick="location.href='products.html?category=natation'">
+            <img src="images/swim.jpg" alt="Natation">
+            <h2>Natation</h2>
+        </div>
+        <div class="category ride-card" onclick="location.href='products.html?category=equitation'">
+            <img src="images/equit.webp" alt="Équitation">
+            <h2>Équitation</h2>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 AquaEquus. par Med Nassim et Serine.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

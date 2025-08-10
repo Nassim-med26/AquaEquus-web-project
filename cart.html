@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panier | AquaEquus</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">AquaEquus</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="cart.html">cart (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="cart">
+        <h1>Votre Panier</h1>
+        <div id="cart-items"></div>
+        <p>Total: €<span id="cart-total">0.00</span></p>
+        <a href="checkout.html" class="btn-gold">place the order </a>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 AquaEquus. par Med Nassim et Serine.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+
+            function displayCart() {
+                if (cart.length === 0) {
+                    cartItems.innerHTML = "<p>Votre panier est vide.</p>";
+                    cartTotal.textContent = "0.00";
+                    return;
+                }
+
+                let html = '';
+                let total = 0;
+
+                cart.forEach(item => {
+                    html += `
+                        <div class="cart-item">
+                            <h3>${item.name}</h3>
+                            <p>€${item.price.toFixed(2)}</p>
+                            <button onclick="removeFromCart(${item.id})">Supprimer</button>
+                        </div>
+                    `;
+                    total += item.price;
+                });
+
+                cartItems.innerHTML = html;
+                cartTotal.textContent = total.toFixed(2);
+            }
+
+            displayCart();
+            updateCartCount();
+        });
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            location.reload(); // Refresh to update display
+        }
+    </script>
+</body>
+</html>
